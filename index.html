@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+
+<style>
+    /* GLOBAL VARIABLES */
+    :root {
+        --darkgrey: rgb(100,100,100);
+        --grey: rgb(220,220,220);
+        --lightgrey: rgb(240,240,240);
+        --googleblue: #4285F4;
+    }
+
+    /* BODY */
+    body {
+        height: 100%;
+        margin: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    /* NAVBAR */
+    .nav {
+        width: 100%;
+        box-sizing: border-box;
+        position: fixed;
+        top: 0;
+        font-size: 13px;
+        padding: 15px 15px;
+        align-items: center;
+    }
+
+    /* left and right halves of navbar */
+    .nav-left {
+        height: 32px;
+        display: flex;
+        float: left;
+        align-items: center;
+    }
+    .nav-right {
+        height: 32px;
+        display: flex;
+        float: right;
+        align-items: center;
+    }
+
+    /* app icon */
+    .grid-icon {
+        width: 25px;
+        height: 32px;
+        object-fit: cover;
+        transform: scale(.75);
+        opacity: 0.5;
+        position: relative;
+        top: 2px;
+    }
+
+    /* account icon */
+    .account-icon {
+        width: 32px;
+        height: 32px;
+        background-color: #73879E;
+        border-style: 0 solid transparent;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .initial {
+        width: 20px;
+        height: 20px; 
+        border: none; 
+        background-color: transparent;
+        color: white;
+        text-align: center;
+        font-size: 17px;
+        font-weight: lighter;
+    }
+
+    /* links in nav bar */
+    .nav a {
+        padding: 0 9px;
+        text-decoration: none;
+        color: var(--darkgrey);
+    }
+
+    /* SEARCH BAR AREA */
+    .search {
+        height: 100vh;
+        display: grid;
+        grid-template-rows: 1fr auto auto auto 3fr;
+        grid-template-areas: 
+            "."
+            "logo"
+            "search-bar"
+            "buttons"
+            ".";
+        justify-items: center;
+    }
+
+    /* Google logo */
+    .logo {
+        grid-area: 2/1/3/2;
+        transform: scale(0.5);
+    }
+
+    /* oval container */
+    .oval {
+        grid-area: 3/1/4/2;
+        width: 485px;
+        height: 44px;
+        margin: -20px 0 30px 0;
+        border: 1px solid var(--grey);
+        border-radius: 24px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    /* magnifying lens icon */
+    .lens {
+        width: 25px;
+        height: 25px;
+        margin: 0 15px;
+        transform: scale(0.85);
+        opacity: 0.5;
+        position: relative;
+        top: 1px;
+        right: 2px;
+    }
+
+    /* text input area */
+    .search-text {
+        width: 400px;
+        height: 40px;
+        border: none;
+    }
+
+    /* voice input icon */
+    .voice {
+        width: 25px;
+        height: 25px;
+        margin: 0 15px;
+        position: relative;
+        top: 1px;
+    }
+
+    /* search buttons */
+    .buttons {
+        grid-area: 4/1/5/2;
+    }
+    .buttons [type='button'] {
+        width: auto;
+        height: 36px;
+        padding: 0 16px;
+        margin: 0 4px;
+        border-width: 0;
+        border-radius: 4px;
+        background: var(--lightgrey);
+        font-size: 14px;
+        color: var(--darkgrey);
+    }
+
+    /* FOOTER */
+    .footer {
+        background-color: var(--lightgrey);
+        width: 100%;
+        box-sizing: border-box;
+        position: fixed;
+        bottom: 0;
+        font-size: 13px;
+        padding: 13px 18px;
+        box-shadow: 0 -1px 0 0 var(--grey);
+    }
+
+    /* left and right halves of footer */
+    .footer-left {
+        display: flex;
+        float: left;
+    }
+    .footer-right {
+        display: flex;
+        float: right;
+    }
+
+    /* links in footer */
+    .footer a {
+        padding: 0 13px;
+        text-decoration: none;
+        color: var(--darkgrey);
+    }
+
+    /* PSEUDOCLASSES */
+
+    /* hover */
+    a:hover {
+        text-decoration: underline;
+    }
+    .grid-icon:hover {
+        opacity: 0.8;
+    }
+    .oval:hover {
+        box-shadow: 1px 1px 5px 1px var(--grey);
+    }
+    [type='button']:hover {
+        box-shadow: 0 0 0 1px var(--grey);
+    }
+
+    /* focus */
+    input.search-text:focus {
+        outline-width:0;
+        font-size: 16px;
+    }
+    [type='button']:focus {
+        outline: 0;
+        border: 1px solid var(--googleblue);
+    }
+
+    /* visited */
+    a:visited {
+        color: var(--darkgrey);
+    }
+</style>
+
+<html>
+    <!-- navbar -->
+    <div class="nav">
+        <!-- left side of navbar -->
+        <div class="nav-left">
+            <div><a href="https://about.google.com/">About</a></div>
+            <div><a href="https://store.google.com/">Store</a></div>
+        </div>
+
+        <!-- right side of navbar -->
+        <div class="nav-right">
+            <div><a href="https://mail.google.com/">Gmail</a></div>
+            <div><a href="https://images.google.com">Images</a></div>
+            <!-- apps icon -->
+            <a href="#"><img src="grid.png" alt="" class="grid-icon"></a>
+            <!-- Google account icon -->
+            <a href="#"><div class="account-icon">
+                <input type="text" class="initial"></input> <!-- user enters his/her initial -->
+            </div></a>
+        </div>
+    </div>
+
+    <!-- search bar area -->
+    <div class="search">
+        <!-- Google logo -->
+        <img src="googlelogo_color_272x92dp.png" alt="" class="logo">
+
+        <!-- search bar -->
+        <div class="oval">
+            <!-- magnifying lens icon -->
+            <svg class="lens"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg>
+            
+            <!-- text input area -->
+            <input type="text" class="search-text">
+
+            <!-- voice input icon -->
+            <a href="#"><img src="http://www.gstatic.com/images/branding/googlemic/2x/googlemic_color_24dp.png" alt="" class="voice"></a>
+        </div>
+
+        <!-- search buttons -->
+        <div class="buttons">
+            <input type="button" value="Google Search">
+            <input type="button" value="I'm Feeling Lucky">
+        </div>
+    </div>
+
+    <!-- footer -->
+    <div class="footer">
+        <!-- left side of footer -->
+        <div class="footer-left">
+            <div><a href="https://ads.google.com">Advertising</a></div>
+            <div><a href="https://www.google.com/services/">Business</a></div>
+            <div><a href="https://www.google.com/search/howsearchworks/">How Search works</a></div>
+        </div>
+
+        <!-- right side of footer -->
+        <div class="footer-right">
+            <div><a href="https://policies.google.com/privacy">Privacy</a></div>
+            <div><a href="https://policies.google.com/terms">Terms</a></div>
+            <div><a href="https://www.google.com/preferences">Settings</a></div>
+        </div>        
+    </div>
+</html>
